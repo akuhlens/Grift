@@ -7,7 +7,9 @@ debug: tidy ndebug all
 libgc : boehm-gc-install/lib/libgc.a
 
 boehm-gc-install/lib/libgc.a :
-	PWD=`pwd`; mkdir boehm-gc/build; ../configure --prefix=${PWD}/boehm-gc-install
+	PWD=`pwd`; mkdir boehm-gc/build; \
+		   cd boehm-gc/build; \
+		   ../configure --prefix=${PWD}/boehm-gc-install
 	$(MAKE) -C boehm-gc/build
 	$(MAKE) -C boehm-gc/build check
 	$(MAKE) -C boehm-gc/build install
