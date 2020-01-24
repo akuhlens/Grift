@@ -11,9 +11,8 @@
     "https://github.com/rjnw/scf.git/?path=scf#master"))
 (define racket-launcher-names '("grift" "grift-bench" "grift-configs"))
 (define racket-launcher-libraries '("main.rkt" "benchmark/bench.rkt" "benchmark/configs.rkt"))
-(define post-install-collection "src/backend-c/runtime/make.rkt")
-(define compile-omit-files
-  '("src/backend-c/runtime"))
+(define post-install-collection "src/backend/runtime/make.rkt")
+(define compile-omit-files '("src/backend/runtime"))
 (define clean
   '("src/backend/runtime/boehm-gc-install"
     "src/backend/runtime/cast-profiler.o"
