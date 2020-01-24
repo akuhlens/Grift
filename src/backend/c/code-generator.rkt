@@ -83,7 +83,7 @@
   (flush-output (current-error-port))
   (flush-output)
   (unless (system cmd)
-    (error 'grift/backend-c/invoke-c-compiler
+    (error 'grift/backend/c/invoke-c-compiler
            "failed to compile with: ~a"
            cmd)))
 

@@ -15,13 +15,13 @@
 (define compile-omit-files
   '("src/backend-c/runtime"))
 (define clean
-  '("src/backend-c/runtime/boehm-gc-install"
-    "src/backend-c/runtime/cast-profiler.o"
-    "src/backend-c/runtime/nonegc.o"
-    "src/backend-c/runtime/hashcons.o"
-    "src/backend-c/runtime/cast_queue.o"
-    "src/backend-c/runtime/suspended_cast.o"
-    "src/backend-c/runtime/runtime.o"))
+  '("src/backend/runtime/boehm-gc-install"
+    "src/backend/runtime/cast-profiler.o"
+    "src/backend/runtime/nonegc.o"
+    "src/backend/runtime/hashcons.o"
+    "src/backend/runtime/cast_queue.o"
+    "src/backend/runtime/suspended_cast.o"
+    "src/backend/runtime/runtime.o"))
 
 (define test-include-paths
   (list #rx".rkt$"))

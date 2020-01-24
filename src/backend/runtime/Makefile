@@ -7,12 +7,11 @@ debug: tidy ndebug all
 libgc : boehm-gc-install/lib/libgc.a
 
 boehm-gc-install/lib/libgc.a :
-	PWD=`pwd`; cd boehm-gc; ./configure --prefix=${PWD}/boehm-gc-install
-	$(MAKE) -C boehm-gc
-	$(MAKE) -C boehm-gc check
-	$(MAKE) -C boehm-gc install
-	-$(MAKE) -C boehm-gc/libatomic_ops -k distclean
-	-$(MAKE) -C boehm-gc -k distclean
+	PWD=`pwd`; mkdir boehm-gc/build; ../configure --prefix=${PWD}/boehm-gc-install
+	$(MAKE) -C boehm-gc/build
+	$(MAKE) -C boehm-gc/build check
+	$(MAKE) -C boehm-gc/build install
+	rm -r boehm-gc/build
 
 %.c :
 
@@ -30,9 +29,7 @@ tidy :
 
 clean : tidy
 	rm -rf boehm-gc-install
-	-$(MAKE) -C boehm-gc/libatomic_ops -k distclean
-	-$(MAKE) -C boehm-gc -k distclean
-	cd tests && make clean
+	-cd tests && make clean
 
 ndebug :
 	$(eval NDEBUG := )

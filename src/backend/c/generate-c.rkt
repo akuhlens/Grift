@@ -342,7 +342,7 @@
     [(Op p exp*)      (emit-op p exp*)]
 
     [(Global s)          (display s)]
-    ;; bit cast float using macro defined in backend-c/runtime/runtime.h
+    ;; bit cast float using macro defined in backend/c/runtime/runtime.h
     [(Quote (? inexact-real? f))  (printf "float_to_imdt(~a)" f)]
     [(Quote (? char? c))
      (if (<= 0 (char->integer c) 255)
@@ -686,7 +686,7 @@
     [((? easy-p? (app easy-p->impl (list t s a* r))) e*)
      (emit-easy-op e* t s a* r)]
     [(other wise)
-     (error 'backend-c/generate-c/emit-op "unmatched value ~a" other)]))
+     (error 'backend/c/generate-c/emit-op "unmatched value ~a" other)]))
 
 
 ;;(: emit-primitive-value (->  Void))
