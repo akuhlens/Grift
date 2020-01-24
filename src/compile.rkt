@@ -31,7 +31,7 @@
          ;; change how the language represents expressions to get a c like ast
          [uil : Data5-Lang (convert-representation d0)])
     ;; generate c code and compile it
-    (c-backend-generate-code uil)))
+    (backend-generate-code uil)))
 
 ;; compile file at path
 ;; exec-path = path/name of final executable
