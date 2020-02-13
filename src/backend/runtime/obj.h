@@ -1,7 +1,10 @@
 #ifndef OBJ_INCLUDED
 #define OBJ_INCLUDED
 #define __STDC_FORMAT_MACROS
+
+#ifndef ONLY_EXPAND
 #include <inttypes.h>
+#endif
 
 /* floatptr_t is a floating point number that is the same width as a pointer */
 #if   (__SIZEOF_POINTER__ == __SIZEOF_DOUBLE__)
