@@ -27,7 +27,7 @@
 ;; Only the pass is provided by this module
 (provide generate-sham)
 
-(define (generate-sham prgm out-path)
+(define (generate-sham prgm)
   (match-let ([(Prog (list name count type) (GlobDecs d* expr)) prgm])
     (define (dglob d) (dglobal #f (uid->symbol d) grift-obj-type))
     (define defs (box (map dglob d*)))
@@ -277,8 +277,8 @@
 (define (build-and x y) (if^ x y (ui 0)))
 (define (build-or x y) (if^ x (ui 1) y))
 (define (build-negate n) (fsub (fl 0.0) n))
-(define ((call s) . args)
-  (app^ ()))
+(define ((call ) . args)
+  (app^ (external )))
 
 
 (define prim-impl : (HashTable Symbol IMPL)
@@ -331,8 +331,8 @@
      (fllog      ,ri-log   (,imdt->float) (,float->imdt))
      (flexp      ,ri-exp   (,imdt->float) (,float->imdt))
      (flsqrt     ,ri-sqrt  (,imdt->float) (,float->imdt))
-     (Print      ,call-printf  (,imdt->string) ())
-     (Exit         "exit"  (,no-cast) ())
+     (Print      ,puts  (,imdt->string) ())
+     (Exit       ,"exit"  (,no-cast) ())
      (int->float   "none"  (,imdt->int->float) ())
      (float->int   "none"  (,imdt->float->int) ())
      (read-bool    "read_bool"  () (,int->imdt))
